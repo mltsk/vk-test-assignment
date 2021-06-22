@@ -1,7 +1,7 @@
 let htmlForm = document.querySelector('.html-form');
 
 const json = {
-    "element": "form",
+    // "element": "form",
     "action": "https://echo.htmlacademy.ru",
     "method": "POST",
     "elements":
@@ -95,7 +95,15 @@ const formGenerator = (json) => {
     attribute.forEach(key => result.setAttribute(key, json[key]));
 
     const iter = (json, result) => {
-        
+        let node ='';
+        if(Array.isArray(json)) {
+            json.elements.forEach(item => {
+                result.appendChild(iter(item, element));
+            })
+        } else {
+            result.appendChild(iter(json.elements));
+        } 
+
         let element = document.createElement(json.element);
         const attribute = getAttributes(json);
         
@@ -124,7 +132,7 @@ const formGenerator = (json) => {
         return result;
     }
 
-    htmlForm.appendChild(iter(json, result));
+    htmlForm.appendChild(iter(json.elements, result));
 }
 
 
