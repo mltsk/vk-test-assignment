@@ -1,0 +1,146 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Helvetica Neue, Roboto, sans-serif;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.section {
+    width: 30%;
+}
+
+.preview {
+    border: 1px solid #000;
+}
+
+.example:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+form {
+    display: flex;
+    flex-wrap: wrap;
+
+    width: 100%;
+}
+
+p {
+    display: flex;
+    flex-wrap: wrap;
+
+    width: 100%;
+    margin: 0;
+    padding-top: 12px;
+    padding-bottom: 2px;
+}
+
+label {
+    color: rgb(129, 140, 153);
+    font-family: Helvetica Neue, Roboto, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+
+    padding-top: 2px;
+    padding-bottom: 6px;
+}
+
+input {
+    height: 34px;
+    width: 100%;
+
+    padding-top: 9px;
+    padding-bottom: 9px;
+    padding-left: 11px;
+    padding-right: 11px;
+    line-height: 20px;
+    font-size: 15px;
+    border-radius: 6px;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    order: -1;
+}
+
+input[type="radio"] {
+    width: 16px;
+    height: 16px;
+    order: -1;
+}
+
+input[type="number"] {
+    width: 75px;
+
+}
+
+input:hover {
+    border-color: rgba(0, 0, 0, 0.22);
+    outline: none;
+}
+
+input:focus {
+    border-color: rgba(0, 0, 0, 0.22);
+    outline: none;
+}
+
+textarea {
+    width: 100%;
+}
+
+button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 36px;
+
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-right: 20px;
+    padding-left: 20px;
+    margin-top: 12px;
+
+    font-family: Helvetica Neue, Roboto, sans-serif;
+    color: #fff;
+
+    background-color: rgb(81, 129, 184);
+    border-radius: 4px;
+    border: 0px;
+}
+
+button:hover {
+    background-color: rgb(81, 129, 164);
+}
+
+button:active {
+    background-color: rgb(61, 129, 164);
+}
+
+select {
+    margin-left: 10px;
+}
+
+fieldset {
+    font-family: Helvetica Neue, Roboto, sans-serif;
+    font-size: 14px;
+    color: rgb(129, 140, 153);
+    width: 100%;
+
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+legend {
+    padding-top: 12px;
+}
+

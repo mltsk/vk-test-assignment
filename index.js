@@ -1,7 +1,7 @@
-let htmlForm = document.querySelector('.html-form');
+import formGenerator from "./module/formGenerator.js";
 
 const json = {
-    // "element": "form",
+    "element": "form",
     "action": "https://echo.htmlacademy.ru",
     "method": "POST",
     "elements":
@@ -18,7 +18,7 @@ const json = {
         "name": "last_name_changed",
         "id": "last_name_changed",
         "label": "ранее менялась"
-    },   
+    },
     {
         "element": "input",
         "type": "text",
@@ -32,6 +32,13 @@ const json = {
         "name": "middle_name",
         "id": "middle_name",
         "label": "Отчество"
+    },
+    {
+        "element": "input",
+        "type": "color",
+        "name": "color",
+        "id": "color",
+        "label": "Любимый цвет"
     },
     {
         "element": "fieldset",
@@ -51,8 +58,50 @@ const json = {
             "id": "type_password_travel",
             "label": "Загран",
             "value": "travel"
-        }
-    ]
+        }]
+
+    },
+    {
+        "element": "fieldset",
+        "legend": "Дата рождение",
+        "elements": [{
+            "element": "input",
+            "type": "number",
+            "name": "day",
+            "placeholder": "31"
+        },
+        {
+            "element": "input",
+            "type": "number",
+            "name": "month",
+            "placeholder": "12"
+        },
+        {
+            "element": "input",
+            "type": "number",
+            "name": "year",
+            "placeholder": "2001"
+        }]
+
+    },
+    {
+        "element": "select",
+        "label": "Семейное положение",
+        "name": "family_status",
+        "id": "family_status",
+        "option": ["Холост", "Женат"]
+    },
+    {
+        "element": "select",
+        "label": "Образование",
+        "name": "education",
+        "id": "education",
+        "option": [{
+            "text": "Среднее",
+            "disabled": "disabled"
+            }, 
+            "Высшее",
+            "Второе"]
     },
     {
         "element": "input",
@@ -61,6 +110,12 @@ const json = {
         "id": "mobile_number",
         "placeholder": "+7",
         "label": "Моб. телефон"
+    },
+    {
+        "element": "textarea",
+        "name": "about",
+        "id": "about",
+        "label": "Расскажите о себе"
     },
     {
         "element": "input",
@@ -72,68 +127,59 @@ const json = {
     },
     {
         "element": "button",
+        "type": "reset",
+        "text": "Сбросить"
+    },
+    {
+        "element": "button",
         "type": "submit",
         "text": "Отправить"
     }]
 }
 
-const getAttributes = (json) => {
-    const attribute = [];
-    const notAttribute = ['element', 'elements', 'label', 'legend'];
-    Object.keys(json).forEach( key => {
-        if (!notAttribute.includes(key)){
-            attribute.push(key);
-        } 
-    })
-    return attribute;
-}
-
-const formGenerator = (json) => {
-
-    let result = document.createElement('form');
-    const attribute = getAttributes(json);
-    attribute.forEach(key => result.setAttribute(key, json[key]));
-
-    const iter = (json, result) => {
-        let node ='';
-        if(Array.isArray(json)) {
-            json.elements.forEach(item => {
-                result.appendChild(iter(item, element));
-            })
-        } else {
-            result.appendChild(iter(json.elements));
-        } 
-
-        let element = document.createElement(json.element);
-        const attribute = getAttributes(json);
-        
-        attribute.forEach(key => element.setAttribute(key, json[key]));
-
-        if(json.label !== undefined) {
-            label = document.createElement('label');
-            label.setAttribute('for', json.id);
-            label.innerText = json.label;
-            result.appendChild(label);
-        }
-
-        result.appendChild(element);
-
-        if(json.elements !== undefined) {
-            if(Array.isArray(json.elements)) {
-                json.elements.forEach(item => {
-                    result.appendChild(iter(item, element));
-                })
-            } else {
-                result.appendChild(iter(json.elements));
-            } 
-        }
-
-        
-        return result;
+const json2 = {
+    "element": "form",
+    "action": "https://echo.htmlacademy.ru",
+    "method": "POST",
+    "elements":
+    {
+        "element": "input",
+        "type": "text",
+        "name": "last_name",
+        "id": "last_name",
+        "label": "Фамилия"
     }
-
-    htmlForm.appendChild(iter(json.elements, result));
 }
 
+const buttonExample1 = document.querySelector('.example1');
+const buttonExample2 = document.querySelector('.example2');
+const textarea = document.querySelector('.textarea');
+const textareaResult = document.querySelector('.textareaResult');
+const pre = document.querySelector('.pre');
 
-console.log(formGenerator(json));
+textarea.addEventListener('input', (e) => {
+    e.preventDefault();
+    let  html = formGenerator(JSON.parse(textarea.value)).outerHTML;
+    textareaResult.value = html.replace(/></gm, '>\n<');
+    pre.innerHTML = html;
+});
+
+buttonExample1.addEventListener('click', (e) => {
+    e.preventDefault();
+    textarea.value = JSON.stringify(json, null, ' ');
+    let  html = formGenerator(JSON.parse(textarea.value)).outerHTML;
+    textareaResult.value = html.replace(/></gm, '>\n<');
+    pre.innerHTML = html;
+})
+
+buttonExample2.addEventListener('click', (e) => {
+    e.preventDefault();
+    textarea.value = JSON.stringify(json2, null, ' ');
+    let  html = formGenerator(JSON.parse(textarea.value)).outerHTML;
+    textareaResult.value = html.replace(/></gm, '>\n<');
+    pre.innerHTML = html;
+})
+
+
+
+// console.log(formGenerator(json)); 

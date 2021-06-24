@@ -4,10 +4,25 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="html-form"></div>
-    <script src="index.js"></script>
+    <div class="wrapper">
+        <section class="textarea-input section">
+            <span class="example1 example" type="button">Пример 1</span>
+            <span class="example2 example" type="button">Пример 2</span>
+            <textarea class="textarea" name="" id="" cols="30" rows="10"></textarea>
+        </section>
+
+        <section class="textarea-output section">
+            <textarea class="textareaResult" name="" id="" cols="30" rows="10"></textarea>
+        </section>
+        
+        <section class="preview section">
+            <div class="pre"></div>
+        </section>
+    </div>
+
+    <script type="module" src="index.js"></script>
 </body>
 </html>
