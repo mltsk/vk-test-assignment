@@ -7,21 +7,48 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="wrapper">
-        <section class="textarea-input section">
-            <span class="example1 example" type="button">Пример 1</span>
-            <span class="example2 example" type="button">Пример 2</span>
-            <textarea class="textarea" name="" id="" cols="30" rows="10"></textarea>
-        </section>
+    <body>
+        <header>
 
-        <section class="textarea-output section">
-            <textarea class="textareaResult" name="" id="" cols="30" rows="10"></textarea>
-        </section>
-        
-        <section class="preview section">
-            <div class="pre"></div>
-        </section>
-    </div>
+        </header>
+        <main class="main">
+            <div class="main__input box">
+                <div class="box__header">
+                    <span class="box__format">JSON</span>
+                    <div class="box__example-wrapper">
+                        <span class="box__example--1 box__example" >Пример 1</span>
+                        <span class="box__example--2 box__example" >Пример 2</span>
+                    </div>
+                </div>
+                <div class="box__main">
+                    <textarea class="box__textarea box__textarea--input" autocorrect="off" autocomplete="off" autocapitalize="none" spellcheck="false"></textarea>
+                </div>
+            </div>
+    
+            <div class="main__output box">
+                <div class="box__header">
+                    <span class="box__format">HTML и CSS</span>
+                </div>
+                <div class="box__main">
+                    <textarea class="box__textarea box__textarea--output" autocorrect="off" autocomplete="off" autocapitalize="none" spellcheck="false"></textarea>
+                </div>
+            </div>
+            
+            <div class="main__preview box box--preview">
+                <div class="box__header">
+                    <span class="box__format">Превью</span>
+                </div>
+                <div shadowroot="open">
+                    <link rel="stylesheet" href="style-form.css">
+                    <div class="box__render"></div>    
+                </div>
+            </div>
+        </main>
+        <footer>
+
+        </footer>
+    </body>
+    
 
     <script type="module" src="index.js"></script>
 </body>

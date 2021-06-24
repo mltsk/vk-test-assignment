@@ -151,32 +151,32 @@ const json2 = {
     }
 }
 
-const buttonExample1 = document.querySelector('.example1');
-const buttonExample2 = document.querySelector('.example2');
-const textarea = document.querySelector('.textarea');
-const textareaResult = document.querySelector('.textareaResult');
-const pre = document.querySelector('.pre');
+const buttonExample1 = document.querySelector('.box__example--1');
+const buttonExample2 = document.querySelector('.box__example--2');
+const textareaInput = document.querySelector('.box__textarea--input');
+const textareaOutput = document.querySelector('.box__textarea--output');
+const pre = document.querySelector('.box__render');
 
-textarea.addEventListener('input', (e) => {
+textareaInput.addEventListener('input', (e) => {
     e.preventDefault();
-    let  html = formGenerator(JSON.parse(textarea.value)).outerHTML;
+    let  html = formGenerator(JSON.parse(textareaInput.value)).outerHTML;
     textareaResult.value = html.replace(/></gm, '>\n<');
     pre.innerHTML = html;
 });
 
 buttonExample1.addEventListener('click', (e) => {
     e.preventDefault();
-    textarea.value = JSON.stringify(json, null, ' ');
-    let  html = formGenerator(JSON.parse(textarea.value)).outerHTML;
-    textareaResult.value = html.replace(/></gm, '>\n<');
+    textareaInput.value = JSON.stringify(json, null, ' ');
+    let  html = formGenerator(JSON.parse(textareaInput.value)).outerHTML;
+    textareaOutput.value = html.replace(/></gm, '>\n<');
     pre.innerHTML = html;
 })
 
 buttonExample2.addEventListener('click', (e) => {
     e.preventDefault();
-    textarea.value = JSON.stringify(json2, null, ' ');
-    let  html = formGenerator(JSON.parse(textarea.value)).outerHTML;
-    textareaResult.value = html.replace(/></gm, '>\n<');
+    textareaInput.value = JSON.stringify(json2, null, ' ');
+    let  html = formGenerator(JSON.parse(textareaInput.value)).outerHTML;
+    textareaOutput.value = html.replace(/></gm, '>\n<');
     pre.innerHTML = html;
 })
 
