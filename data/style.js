@@ -1,27 +1,21 @@
-form {
-    /* padding: 5px; */
-    }
-    
-p {
+const style = {
+"p": `p {
     display: flex;
     flex-wrap: wrap;
     
-    /* width: 100%; */
     margin: 0;
     padding-top: 12px;
     padding-bottom: 2px;
-}
-    
-label {
+}`,
+"label": `label {
     color: rgb(129, 140, 153);
     font-family: Helvetica Neue, Roboto, sans-serif;
     font-size: 14px;
     
     padding-top: 2px;
     padding-bottom: 6px;
-}
-    
-input {
+}`,
+"input": `input {
     height: 34px;
     width: 100%;
     padding-top: 9px;
@@ -39,34 +33,29 @@ input {
 input:hover {
     border-color: #bcbdbe;
     outline: none;
-    }
+}
     
 input:focus {
     border-color: #5181b8;
     outline: none;
-}
-    
-input[type="checkbox"] {
+}`,
+"input[type='checkbox']": `input[type="checkbox"] {
     width: 16px;
     height: 16px;
     order: -1;
-}
-    
-input[type="radio"] {
+}`,
+"input[type='radio']": `input[type="radio"] {
     width: 16px;
     height: 16px;
     order: -1;
-}
-    
-input[type="number"] {
+}`,
+"input[type='number']": `input[type="number"] {
     width: 75px;
-}
-    
-textarea {
+}`,
+"textarea": `textarea {
     width: 100%;
-}
-    
-button {
+}`,
+"button": `button {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -93,13 +82,11 @@ button:hover {
     
 button:active {
     background-color: rgb(61, 129, 164);
-}
-    
-select {
+}`,
+"select": `select {
     margin-left: 10px;
-}
-    
-fieldset {
+}`,
+"fieldset": `fieldset {
     font-family: Helvetica Neue, Roboto, sans-serif;
     font-size: 14px;
     color: rgb(129, 140, 153);
@@ -108,8 +95,10 @@ fieldset {
     margin: 0;
     padding: 0;
     border: none;
-}
-    
-legend {
+}`,
+"legend": `legend {
     padding-top: 12px;
-}
+}`
+}  
+
+export default style;
