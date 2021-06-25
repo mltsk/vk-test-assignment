@@ -1,4 +1,7 @@
-const createElementWithAttributes = (json) => {
+const createElementWithAttributes = (json, teg = false) => {
+    if (teg !== false) {
+        json.element = teg;
+    }
     const element = document.createElement(json.element);
     const attribute = [];
     const notAttribute = ['element', 'elements', 'label', 'legend', 'text', 'option'];
@@ -12,11 +15,11 @@ const createElementWithAttributes = (json) => {
 }
 
 const htmlGenerator = (json) => {
-    let result = document.createElement('form');
-    console.log('result0: ', result);
-    const iter = (jsonArr, result) => {
-        // console.log('result2: ', result);
-        // let node = '';
+    let result = createElementWithAttributes(json.form ,'form');
+    
+    const iter = (jsonArr) => {
+        const node = document.createElement('div');
+        
         jsonArr.forEach(json => {
             const element = createElementWithAttributes(json);
             if(json.text !== undefined) element.textContent = json.text;
@@ -42,27 +45,33 @@ const htmlGenerator = (json) => {
                 const p = (document.createElement('p'));
                 p.appendChild(label);
                 p.appendChild(element);
-                result.appendChild(p);
+                node.appendChild(p);
 
             } else if (json.legend !== undefined) {
                 let legend = document.createElement('legend');
                 legend.innerText = json.legend;
                 element.appendChild(legend);
-                result.appendChild(element);
+                node.appendChild(element);
                 
             } else  {
-                result.appendChild(element);
+                node.appendChild(element);
             }
 
             if(json.elements !== undefined) {
-                // console.log('json.elements: ', json.elements);
-                (iter(json.elements, result));
+                element.appendChild(iter(json.elements));
             }
-            // console.log('result11: ', result);
         })
-        return result; 
+
+        return node;
     }
-    return iter(json.elements, result);
+
+    result.appendChild(iter(json.elements));
+    const button = createElementWithAttributes(json.button ,'button');
+    button.textContent = json.button.text;
+    result.appendChild(button);
+    return result;
 }
 
 export default htmlGenerator;
+
+

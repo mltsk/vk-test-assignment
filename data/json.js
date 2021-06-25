@@ -1,7 +1,13 @@
 const json1 = {
-    "element": "form",
-    "action": "https://echo.htmlacademy.ru",
-    "method": "POST",
+    "form": {
+        "action": "https://echo.htmlacademy.ru",
+        "method": "POST",
+        "autocomplete": "off"
+    },
+    "button": {
+        "text": "Отправить",
+        "type": "submit"
+    },
     "elements":
     [{
         "element": "input",
@@ -127,18 +133,20 @@ const json1 = {
         "element": "button",
         "type": "reset",
         "text": "Сбросить"
-    },
-    {
-        "element": "button",
-        "type": "submit",
-        "text": "Отправить"
-    }]
+    }
+]
 }
 
 const json2 = {
-    "element": "form",
-    "action": "https://echo.htmlacademy.ru",
-    "method": "POST",
+    "form": {
+        "action": "https://echo.htmlacademy.ru",
+        "method": "POST",
+        "autocomplete": "off"
+    },
+    "button": {
+        "text": "Отправить",
+        "type": "submit"
+    },
     "elements":
     [{
         "element": "input",

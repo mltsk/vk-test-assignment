@@ -2,6 +2,7 @@ const getUniqElements = (json) => {
     const result = [];
 
     const iter = (json) => {
+        result.push('button');
         if (json.label !== undefined) result.push('label', 'p');
         if (json.legend !== undefined) result.push('legend');
         if (json.element === 'input' && json.type !== undefined) {
@@ -11,13 +12,9 @@ const getUniqElements = (json) => {
             result.push(json.element);
         }
         if (json.elements !== undefined) {
-            if(Array.isArray(json.elements)) {
-                json.elements.forEach(item => {
-                    iter(item);
-                })
-            } else {
-                iter(json.elements);
-            }
+            json.elements.forEach(item => {
+                iter(item);
+            })
         }
     }
     iter(json);
