@@ -12,11 +12,10 @@ const createElementWithAttributes = (json) => {
 }
 
 const htmlGenerator = (json) => {
-    const result = document.createElement('div');
+    const result = document.createElement('form');
     const iter = (json, result) => {
         const element = createElementWithAttributes(json);
         if(json.text !== undefined) element.textContent = json.text;
-        if(json.text !== undefined && json.type === 'submit') element.value = json.text;
         if(json.element === 'select') {
             json.option.forEach(item => {
                 if (typeof(item) === 'string') {
@@ -50,13 +49,9 @@ const htmlGenerator = (json) => {
         }
 
         if(json.elements !== undefined) {
-            if(Array.isArray(json.elements)) {
                 json.elements.forEach(item => {
                     result.appendChild(iter(item, element));
                 })
-            } else {
-                result.appendChild(iter(json.elements, element));
-            } 
         }
         return result;
     }

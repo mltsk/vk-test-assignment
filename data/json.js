@@ -140,13 +140,13 @@ const json2 = {
     "action": "https://echo.htmlacademy.ru",
     "method": "POST",
     "elements":
-    {
+    [{
         "element": "input",
         "type": "text",
         "name": "last_name",
         "id": "last_name",
         "label": "Фамилия"
-    }
+    }]
 }
 
 export {json1, json2};
