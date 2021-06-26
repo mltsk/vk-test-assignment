@@ -4,9 +4,9 @@ const createElementWithAttributes = (json, tag = false) => {
     }
     const element = document.createElement(json.element);
     const attribute = [];
-    const notAttribute = ['element', 'elements', 'label', 'legend', 'text', 'option'];
+    const specialAttribute = ['element', 'elements', 'label', 'legend', 'text', 'option'];
     Object.keys(json).forEach( key => {
-        if (!notAttribute.includes(key)){
+        if (!specialAttribute.includes(key)){
             attribute.push(key);
         } 
     })

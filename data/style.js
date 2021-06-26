@@ -34,7 +34,7 @@ input:hover {
     border-color: #bcbdbe;
     outline: none;
 }
-    
+
 input:focus {
     border-color: #5181b8;
     outline: none;
@@ -43,12 +43,24 @@ input:focus {
     width: 16px;
     height: 16px;
     order: -1;
-}`,
+}
+
+input[type="checkbox"]:focus {
+    outline: 1px solid #5181b8;
+}
+
+`,
 "input[type='radio']": `input[type="radio"] {
     width: 16px;
     height: 16px;
     order: -1;
-}`,
+}
+
+input[type="radio"]:focus {
+    outline: 1px solid #5181b8;
+}
+
+`,
 "input[type='number']": `input[type="number"] {
     width: 75px;
 }`,
