@@ -1,6 +1,6 @@
 import styleGenerator from "./styleGenerator.js";
 import htmlGenerator from "./htmlGenerator.js";
-import style from "./data/style.js";
+import style from "../data/style.js";
 
 const formGenerator = (json) => {
     const html = htmlGenerator(json);
