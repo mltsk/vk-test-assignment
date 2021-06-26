@@ -1,5 +1,4 @@
 import formGenerator from "./module/formGenerator.js";
-import style from "./data/style.js";
 import {json1, json2} from "./data/json.js";
 
 
@@ -11,7 +10,7 @@ const pre = document.querySelector('.box__render');
 
 textareaInput.addEventListener('input', (e) => {
     e.preventDefault();
-    let  htmlAndCss = formGenerator((JSON.parse(textareaInput.value)), style);
+    let  htmlAndCss = formGenerator((JSON.parse(textareaInput.value)));
     textareaOutput.value = htmlAndCss;
     pre.innerHTML = htmlAndCss;
 });
@@ -19,7 +18,7 @@ textareaInput.addEventListener('input', (e) => {
 buttonExample1.addEventListener('click', (e) => {
     e.preventDefault();
     textareaInput.value = JSON.stringify(json1, null, ' ');
-    let  htmlAndCss = formGenerator((JSON.parse(textareaInput.value)), style);
+    let  htmlAndCss = formGenerator((JSON.parse(textareaInput.value)));
     textareaOutput.value = htmlAndCss;
     pre.innerHTML = htmlAndCss;
 })
@@ -27,7 +26,7 @@ buttonExample1.addEventListener('click', (e) => {
 buttonExample2.addEventListener('click', (e) => {
     e.preventDefault();
     textareaInput.value = JSON.stringify(json2, null, ' ');
-    let  htmlAndCss = formGenerator((JSON.parse(textareaInput.value)), style);
+    let  htmlAndCss = formGenerator((JSON.parse(textareaInput.value)));
     textareaOutput.value = htmlAndCss;
     pre.innerHTML = htmlAndCss;
 })

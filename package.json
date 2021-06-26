@@ -16,8 +16,5 @@
   "bugs": {
     "url": "https://github.com/mltsk/vk-test-assignment/issues"
   },
-  "homepage": "https://github.com/mltsk/vk-test-assignment#readme",
-  "devDependencies": {
-    "jest": "^27.0.4"
-  }
+  "homepage": "https://github.com/mltsk/vk-test-assignment#readme"
 }

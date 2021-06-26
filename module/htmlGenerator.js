@@ -1,6 +1,6 @@
-const createElementWithAttributes = (json, teg = false) => {
-    if (teg !== false) {
-        json.element = teg;
+const createElementWithAttributes = (json, tag = false) => {
+    if (tag) {
+        json.element = tag;
     }
     const element = document.createElement(json.element);
     const attribute = [];
