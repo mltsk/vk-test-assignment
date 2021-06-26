@@ -1,6 +1,6 @@
 const json1 = {
     "form": {
-        "action": "https://echo.htmlacademy.ru",
+        "action": "https://example.com",
         "method": "POST",
         "autocomplete": "off"
     },
@@ -139,7 +139,7 @@ const json1 = {
 
 const json2 = {
     "form": {
-        "action": "https://echo.htmlacademy.ru",
+        "action": "https://example.com",
         "method": "POST",
         "autocomplete": "off"
     },
